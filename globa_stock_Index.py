@@ -103,10 +103,12 @@ def stock_period_report(stock_code, stock_area, start_time, end_time):
     print (data)
     # 印出前3行
     print(df[:3])
-    # 印出前5行
-    #print(df.head())
-    # 印出後5行
-    #print(df.tail())
+    """
+    #印出前5行
+    print(df.head())
+    #印出後5行
+    print(df.tail())
+    """
     
     # 寫成csv
     df.tail().to_csv(f"{stock_code}_最近五天.csv")
