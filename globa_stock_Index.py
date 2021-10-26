@@ -79,7 +79,8 @@ def stock_period_report(stock_code, stock_area, start_time, end_time):
     """
 
     url_template= f"https://query1.finance.yahoo.com/v8/finance/chart/{stock_code}.{stock_area}?period1={start_time}&period2={end_time}&interval=1d&events=history&=hP2rOschxO0"
-    #print(url_template)
+    print(url_template)
+    print('')
     #url_template = "https://query1.finance.yahoo.com/v7/finance/download/2330.TW?period1=1633392000&period2=1635206400&interval=1d&events=history&includeAdjustedClose=true"
     ua = UserAgent()
     user_agent = ua.random
@@ -98,12 +99,14 @@ def stock_period_report(stock_code, stock_area, start_time, end_time):
         ),
         columns=["open","high","low","close","volume"]
     )
+    
+    print (data)
     # 印出前3行
     print(df[:3])
     # 印出前5行
-    print(df.head())
+    #print(df.head())
     # 印出後5行
-    print(df.tail())
+    #print(df.tail())
     
     # 寫成csv
     df.tail().to_csv(f"{stock_code}_最近五天.csv")
